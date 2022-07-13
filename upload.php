@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
                 $query="insert into images(image_ref) values('$fileUniqueName')";
                 // echo $query;
                 $run = pg_query($conn,$query);
-                if($run) echo 'upload successfull';
+                if($run) echo '<br>upload successfull';
                 else echo 'error';
                 // header("Location: index.html?uploaded");
             }else echo 'File size is larger than 500kb';
