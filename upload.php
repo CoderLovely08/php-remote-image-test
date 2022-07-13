@@ -8,16 +8,23 @@ if (!$conn) {
     echo 'something went wrong!';
     exit();
 }
-echo 'connected';
+// echo 'connected';
+
+if (isset($_POST['delete'])) {
+    $sql="delete from images";
+    $result = pg_query($conn,$sql);
+    if($result) echo 'All images deleted';
+    exit();
+}
 if (isset($_POST['submit'])) {
     $file = $_FILES['file'];
-    print_r($file);
+    // print_r($file);
     $fileName=$_FILES['file']['name'];
     $fileType=$_FILES['file']['type'];
     $fileSize=$_FILES['file']['size'];
     $fileError=$_FILES['file']['error'];
     $fileTempLocation=$_FILES['file']['tmp_name'];
-//     echo "File name is: ".$fileName."<br>\nFile type is: ".$fileType."<br>\nFile Size is: ". ($fileSize/1000)." kb";
+    echo "File name is: ".$fileName."<br>\nFile type is: ".$fileType."<br>\nFile Size is: ". ($fileSize/1000)." kb";
 
     // get the file extension
     $fileExt=explode('.',$fileName);
@@ -37,7 +44,7 @@ if (isset($_POST['submit'])) {
                 $fileDestinantion='uploads/'.$fileUniqueName;
                 move_uploaded_file($fileTempLocation,$fileDestinantion);
                 $query="insert into images(image_ref) values('$fileUniqueName')";
-                echo $query;
+                // echo $query;
                 $run = pg_query($conn,$query);
                 if($run) echo 'upload successfull';
                 else echo 'error';

@@ -19,4 +19,4 @@ for ($i = 0; $i < count($row); $i++) {
 ?>
 
 
-<a href="index.html">Go back</a>
+<a href="index.php">Go back</a>

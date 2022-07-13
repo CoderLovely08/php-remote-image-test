@@ -14,6 +14,7 @@
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="file" id="">
         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" name="delete" class="btn btn-danger" value="Delete All">
     </form>
     <a href="view.php">View images</a>
 
