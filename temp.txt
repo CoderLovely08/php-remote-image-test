@@ -1,0 +1,2 @@
+<label for=""></label>
+<img id="<?$row[i]['id']?>" src="uploads/<?= $row[1]?>" alt="image1">
